@@ -20,7 +20,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="font-Montserrat">
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

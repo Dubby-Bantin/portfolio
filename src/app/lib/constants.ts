@@ -16,6 +16,13 @@ import {
   firebase,
   nextjs,
 } from "../assets";
+import {
+  FaLaptopCode,
+  FaSearch,
+  FaTools,
+  FaProjectDiagram,
+  FaRocket,
+} from "react-icons/fa";
 
 export const navLinks = [
   {
@@ -227,4 +234,37 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, projects };
+const approachSteps = [
+  {
+    title: "Research & Learning",
+    description:
+      "I believe in starting every project with a strong foundation. I invest time in thorough research and learning, often exploring multiple resources...",
+    Icon: FaSearch,
+  },
+  {
+    title: "Planning & Strategy",
+    description:
+      "Next, I create a detailed plan and strategy. This phase involves setting goals, defining milestones, and ensuring that the project is aligned with the overall vision.",
+    Icon: FaProjectDiagram,
+  },
+  {
+    title: "Design & Development",
+    description:
+      "During this phase, I focus on the creative and technical aspects of the project. This involves designing user interfaces, writing code, and building the core functionalities.",
+    Icon: FaLaptopCode,
+  },
+  {
+    title: "Testing & Optimization",
+    description:
+      "After development, I rigorously test the project to identify any bugs and optimize the project for the best performance.",
+    Icon: FaTools,
+  },
+  {
+    title: "Launch & Monitoring",
+    description:
+      "Finally, I launch the project and monitor its performance. I also gather feedback and make necessary adjustments to ensure continued success.",
+    Icon: FaRocket,
+  },
+];
+
+export { services, technologies, experiences, projects, approachSteps };

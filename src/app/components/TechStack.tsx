@@ -5,7 +5,7 @@ import Image from "next/image";
 const TechStack = () => (
   <section id="techstack" className="w-full py-20 bg-[#050112] text-white">
     <div className="max-w-6xl mx-auto px-4 text-center">
-      <h2 className="md:tracking-wider mb-4 lg:text-3xl text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-t from-indigo-900 via-blue-500 to-neutral-200 bg-opacity-60">
+      <h2 className="md:tracking-wider mb-4 lg:text-3xl font-heading text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-t from-indigo-900 via-blue-500 to-neutral-200 bg-opacity-60">
         My Tech Stack
       </h2>
       <div className="flex items-center flex-wrap justify-center gap-10">

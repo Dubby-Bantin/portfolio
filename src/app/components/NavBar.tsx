@@ -8,8 +8,23 @@ import { useEffect, useRef, useState } from "react";
 import { RiCloseFill, RiMenu3Line } from "react-icons/ri";
 const NavBar = () => {
   const [isOpen, setIsopen] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
+  const activateBlur = () => {
+    window.addEventListener("scroll", () =>
+      window.scrollY > 10 ? setIsScroll(true) : setIsScroll(false)
+    );
+  };
+
+  useEffect(() => {
+    activateBlur();
+  }, []);
+
   return (
-    <header className="top-0 z-[9999] sticky  flex justify-between items-center backdrop-blur-lg p-2 transition-all duration-700 ">
+    <header
+      className={`top-0 z-[9999] sticky  flex justify-between items-center ${
+        !isScroll ? "bg-black-100" : "backdrop-blur-lg"
+      }  p-2 `}
+    >
       <Image src={logo} alt="logo" height={50} className="rounded-full" />
 
       <ul className="sm:flex items-center gap-10 hidden text-white">
