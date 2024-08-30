@@ -1,5 +1,3 @@
-// /src/components/HeadComponent.tsx
-import Head from "next/head";
 import seoConfig from "../lib/seoConfig";
 
 const HeadComponent: React.FC = () => (
