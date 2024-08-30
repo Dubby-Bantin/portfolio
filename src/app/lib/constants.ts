@@ -212,7 +212,7 @@ const projects = [
     desc: "A personal portfolio showcasing my projects, skills, and experiences. Designed to reflect my style and expertise.",
     img: portfolio,
     iconLists: [nextjs, tailwind, typescript, firebase],
-    live_url: "https://github.com/your-username/portfolio-website",
+    live_url: "https://portfolio-ivory-seven-71.vercel.app/",
     git_link: "https://github.com/Dubby-Bantin/portfolio",
   },
   {
