@@ -1,14 +1,10 @@
 import logo from "./images/logo.png";
-import backend from "./images/backend.png";
-import creator from "./images/creator.png";
-import mobile from "./images/mobile.png";
-import web from "./images/web.png";
 import github from "./images/github.png";
 import menu from "./icons/menu.svg";
 import close from "./icons/close.svg";
-
 import css from "./images/tech/css.png";
-import docker from "./images/tech/docker.png";
+
+// techStack Images
 import figma from "./images/tech/figma.png";
 import git from "./images/tech/git.png";
 import html from "./images/tech/html.png";
@@ -19,29 +15,22 @@ import reactjs from "./images/tech/reactjs.png";
 import redux from "./images/tech/redux.png";
 import tailwind from "./images/tech/tailwind.png";
 import typescript from "./images/tech/typescript.png";
-import nextjs from "./images/tech/next.jpeg";
+import nextjs from "./images/tech/next.png";
 import firebase from "./images/tech/firebase.png";
 
-// import meta from "./company/meta.png";
-// import shopify from "./company/shopify.png";
-// import starbucks from "./company/starbucks.png";
-// import tesla from "./company/tesla.png";
-
-// import carrent from "./carrent.png";
-// import jobit from "./jobit.png";
-// import tripguide from "./tripguide.png";
+// projectImages
+import nft from "./images/nft.png";
+import hoobank from "./images/hoo bank.png";
+import portfolio from "./images/portfolio.png";
+import tipvault from "./images/tipvault.png";
+import apple from "./images/apple.png";
 
 export {
   nextjs,
-  backend,
-  creator,
-  mobile,
-  web,
   github,
   menu,
   close,
   css,
-  docker,
   figma,
   git,
   html,
@@ -54,4 +43,9 @@ export {
   typescript,
   logo,
   firebase,
+  hoobank,
+  nft,
+  portfolio,
+  tipvault,
+  apple,
 };

@@ -7,18 +7,6 @@
   scroll-behavior: smooth;
 }
 
-.floating-icon-react {
-  animation: spin 6s linear infinite;
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .mobile__nav {
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -50,4 +38,9 @@
   100% {
     transform: translateY(0);
   }
+}
+
+.blue__gradient {
+  background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
+  filter: blur(100px);
 }

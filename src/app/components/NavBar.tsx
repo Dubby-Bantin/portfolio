@@ -21,7 +21,7 @@ const NavBar = () => {
 
   return (
     <header
-      className={`top-0 z-[9999] sticky  flex justify-between items-center ${
+      className={`top-0 z-[9999] sticky px-5  flex justify-between items-center ${
         !isScroll ? "bg-black-100" : "backdrop-blur-lg"
       }  p-2 `}
     >
@@ -29,7 +29,7 @@ const NavBar = () => {
 
       <ul className="sm:flex items-center gap-10 hidden text-white">
         {navLinks.map(({ id, title }) => (
-          <Link key={id} href={""}>
+          <Link key={id} href={`#${id}`}>
             {title}
           </Link>
         ))}
@@ -44,11 +44,12 @@ const NavBar = () => {
         {isOpen ? <RiCloseFill /> : <RiMenu3Line />}
       </button>
       <div
-        className={`sm:hidden mobile__nav justify-center bg-gradient-to-br from-[#040d26] via-[#2a3f6d] to-[#050112] items-center rounded-md flex flex-col h-[20rem] w-[13rem] top-20 right-0 shadow-lg absolute gap-5 z-[9999] ${
+        className={`sm:hidden mobile__nav justify-center bg-gradient-to-br from-[#0C0E23] to-[#050112] items-center rounded-md flex flex-col h-[20rem] w-[13rem] top-20 right-0 shadow-lg absolute gap-5 z-[9999] ${
           isOpen ? "flex" : "hidden"
         }`}
       >
-        <ul className="flex flex-col gap-10 text-white items-center">
+        <ul className="flex flex-col relative gap-10 text-white items-center">
+          <div className="blue__gradient bottom-40 w-full h-full z-0 absolute" />
           {navLinks.map(({ id, title }) => (
             <Link onClick={() => setIsopen(false)} key={id} href={"href"}>
               {title}

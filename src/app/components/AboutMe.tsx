@@ -41,8 +41,8 @@ const AboutMe: React.FC = () => {
         </p>
       </div>
 
-      <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full pointer-events-none">
-        <FaReact className="text-4xl text-blue-400 floating-icon-react absolute top-1/4 left-10" />
+      <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full h-full  pointer-events-none">
+        <FaReact className="text-4xl text-blue-400 animate-[spin_6s_linear_infinite] absolute top-1/4 left-10" />
         <FaJs className="text-4xl text-yellow-200 floating-icon absolute top-1/4 right-10" />
         <FaCss3Alt className="text-4xl text-blue-600 floating-icon absolute bottom-1/4 left-1/4" />
         <FaHtml5 className="text-4xl text-orange-600 floating-icon absolute bottom-1/4 right-1/4" />
