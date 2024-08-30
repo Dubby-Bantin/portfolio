@@ -5,17 +5,15 @@ import Projects from "./components/Projects";
 import TechStack from "./components/TechStack";
 import WorkApproach from "./components/WorkApproach";
 
-const Home = () => {
-  return (
-    <div className="bg-[#050112] min-h-screen">
-      <Hero />
-      <AboutMe />
-      <TechStack />
-      <WorkApproach />
-      <Projects />
-      <Footer />
-    </div>
-  );
-};
+const Home = () => (
+  <div className="bg-[#050112] min-h-screen">
+    <Hero />
+    <AboutMe />
+    <TechStack />
+    <WorkApproach />
+    <Projects />
+    <Footer />
+  </div>
+);
 
 export default Home;
