@@ -44,3 +44,7 @@
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
   filter: blur(100px);
 }
+
+.text-gradient {
+  @apply md:tracking-wider mb-4 font-heading  lg:text-3xl text-[#1c1e21] text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-t from-indigo-900 via-blue-500 to-neutral-200 bg-opacity-60;
+}

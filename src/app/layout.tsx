@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "./components/NavBar";
+import NavBar from "../components/NavBar";
 import { ThemeProvider } from "next-themes";
-import seoConfig from "./lib/seoConfig";
-import HeadComponent from "./components/HeadComponent";
+import HeadComponent from "../components/HeadComponent";
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <HeadComponent />
-      <body>
+      <body className="bg-[#050112]">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

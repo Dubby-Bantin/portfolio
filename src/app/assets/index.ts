@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import logo from "./images/logo.png";
 import github from "./images/github.png";
 import menu from "./icons/menu.svg";
@@ -25,6 +26,14 @@ import portfolio from "./images/portfolio.png";
 import tipvault from "./images/tipvault.png";
 import apple from "./images/apple.png";
 
+import photo1 from "./images/blogImages/istockphoto-1156837650-612x612.jpg";
+import photo2 from "./images/blogImages/istockphoto-1224500457-612x612.jpg";
+import photo3 from "./images/blogImages/istockphoto-1224500457-612x612.jpg";
+import photo4 from "./images/blogImages/istockphoto-1356364268-612x612.jpg";
+import photo5 from "./images/blogImages/pexels-antonio-batinic-2573434-4164418.jpg";
+
+// vidoes
+
 export {
   nextjs,
   github,
@@ -48,4 +57,9 @@ export {
   portfolio,
   tipvault,
   apple,
+  photo1,
+  photo2,
+  photo3,
+  photo4,
+  photo5,
 };

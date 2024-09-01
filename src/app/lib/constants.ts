@@ -18,6 +18,11 @@ import {
   portfolio,
   github,
   apple,
+  photo1,
+  photo2,
+  photo3,
+  photo4,
+  photo5,
 } from "../assets";
 import {
   FaLaptopCode,
@@ -274,4 +279,43 @@ const socialMedia = [
   },
 ];
 
-export { technologies, projects, approachSteps, socialMedia };
+const StaticBlogPostsSlider = [
+  {
+    title: "Best NPM Packages",
+    date: "Oct 08, 2021",
+    image: photo1,
+  },
+  {
+    title: "React Testing",
+    date: "Oct 08, 2021",
+    image: photo2,
+  },
+  {
+    title: "Best React Animation Libraries",
+    date: "Oct 11, 2021",
+    image: photo3,
+  },
+  {
+    title: "Best GitHub Repositories Every Developer Should Know",
+    date: "Oct 11, 2021",
+    image: photo4,
+  },
+  {
+    title: "Make Money as a Developer",
+    date: "Oct 11, 2021",
+    image: photo5,
+  },
+];
+
+export {
+  technologies,
+  projects,
+  approachSteps,
+  socialMedia,
+  photo1,
+  photo2,
+  photo3,
+  photo4,
+  photo5,
+  StaticBlogPostsSlider,
+};
