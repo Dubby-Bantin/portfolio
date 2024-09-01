@@ -1,16 +1,7 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "../components/NavBar";
 import { ThemeProvider } from "next-themes";
 import HeadComponent from "../components/HeadComponent";
-
-export const metadata: Metadata = {
-  title: {
-    absolute: "",
-    default: "portfolio",
-    template: "%s | Bantin",
-  },
-};
 
 export default function RootLayout({
   children,
@@ -18,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <HeadComponent />
-      <body className="bg-[#050112]">
+      <body className="bg-white dark:bg-[#050112] text-black dark:text-white">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

@@ -29,8 +29,8 @@ const BlogBanner = () => {
         height="100%"
         autoPlay
         loop
-        muted // Mute the video to comply with autoplay policies
-        playsInline // Ensure video plays inline on mobile devices
+        muted // Muting the video to comply with autoplay policies
+        playsInline //To ensure video plays inline on mobile devices
         src="/videos/video.mp4"
         className="w-full h-auto md:h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
       />

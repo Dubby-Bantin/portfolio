@@ -23,7 +23,7 @@ interface SEOConfig {
 }
 
 const seoConfig: SEOConfig = {
-  title: "dubbystack.net/portfolio",
+  title: "dubbystack.net-portfolio",
   description: "Showcasing my work and projects as a web developer.",
   keywords: "portfolio, web development, projects, coding",
   siteUrl: "https://portfolio-ivory-seven-71.vercel.app/",
