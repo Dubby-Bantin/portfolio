@@ -1,14 +1,36 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import MagicButton from "./MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
 
 const BlogBanner = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const playVideo = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+        } catch (error) {
+          console.log("Video play failed:", error);
+        }
+      }
+    };
+
+    playVideo();
+  }, []);
+
   return (
     <div className="relative w-full overflow-hidden">
       <video
+        ref={videoRef}
         width="100%"
         height="100%"
         autoPlay
         loop
+        muted // Mute the video to comply with autoplay policies
+        playsInline // Ensure video plays inline on mobile devices
         src="/videos/video.mp4"
         className="w-full h-auto md:h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
       />
