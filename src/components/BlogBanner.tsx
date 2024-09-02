@@ -45,7 +45,7 @@ const BlogBanner = () => {
           </p>
           <a
             href="#latest-posts"
-            className="mt-4 bg-primary text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-sm md:text-lg font-semibold transition-transform transform hover:scale-105"
+            className="mt-4 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-sm md:text-lg font-semibold transition-transform transform hover:scale-105"
           >
             <MagicButton title="Explore now" icon={<FaLocationArrow />} />
           </a>

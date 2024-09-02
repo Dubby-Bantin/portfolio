@@ -10,7 +10,6 @@ const Footer = () => {
       className="w-full font-text pb-10 relative overflow-clip"
       id="contact"
     >
-      {/* background grid */}
       <Image
         src={footer_grid}
         alt="grid"
@@ -32,7 +31,7 @@ const Footer = () => {
       </div>
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center px-10 gap-5">
         <p className="md:text-base text-sm md:font-normal font-light">
-          Copyright © {new Date().getFullYear()}Chidubem Desmond
+          Copyright © {new Date().getFullYear()} Chidubem Desmond
         </p>
 
         <div className="flex items-center md:gap-3 gap-6">
