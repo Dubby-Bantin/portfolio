@@ -1,10 +1,10 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { useRouter } from "next/navigation"; // Adjusted for Next.js 13 routing
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { ImSpinner2 } from "react-icons/im";
-
+import { FcGoogle } from "react-icons/fc";
 import {
   InputOTP,
   InputOTPGroup,
@@ -12,6 +12,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import { encryptKey } from "@/utils/utils";
+import { signInWithGitHub, signInWithGoogle } from "@/app/lib/firebase";
 
 const AuthForm: FC = () => {
   const [displayOtp, setDisplayOtp] = useState(false);
@@ -55,12 +56,18 @@ const AuthForm: FC = () => {
         </p>
 
         <div className="flex justify-between mt-6">
-          <button className="flex items-center justify-center w-full px-4 py-2 mr-2 text-sm font-medium text-white border rounded-md hover:bg-gray-700 transition-all duration-700">
+          <button
+            onClick={signInWithGitHub}
+            className="flex items-center justify-center w-full px-4 py-2 mr-2 text-sm font-medium text-white border rounded-md hover:bg-gray-700 transition-all duration-700"
+          >
             <FaGithub className="mr-2" />
             GitHub
           </button>
-          <button className="flex items-center justify-center w-full px-4 py-2 ml-2 text-sm font-medium text-white border rounded-md hover:bg-gray-700 transition-all duration-700">
-            <FaGoogle className="mr-2" />
+          <button
+            onClick={signInWithGoogle}
+            className="flex items-center justify-center w-full px-4 py-2 ml-2 text-sm font-medium text-white border rounded-md hover:bg-gray-700 transition-all duration-700"
+          >
+            <FcGoogle className="mr-2" />
             Google
           </button>
         </div>

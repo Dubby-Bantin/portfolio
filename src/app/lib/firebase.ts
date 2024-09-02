@@ -1,6 +1,15 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { Auth, getAuth, RecaptchaVerifier } from "firebase/auth";
+import {
+  Auth,
+  getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
+} from "firebase/auth";
 import { signInWithCredential } from "firebase/auth";
+import { toast } from "react-toastify";
 // Usage
 
 const firebaseConfig = {
@@ -15,4 +24,29 @@ const firebaseConfig = {
 const app = getApps.length === 0 ? initializeApp(firebaseConfig) : getApp();
 const auth: Auth = getAuth(app);
 auth.useDeviceLanguage();
-export { auth, RecaptchaVerifier, signInWithCredential };
+
+const signInWithGoogle = async () => {
+  try {
+    await signInWithPopup(auth, new GoogleAuthProvider());
+  } catch (e: any) {
+    toast.error(e?.message);
+  }
+};
+
+const signInWithGitHub = async () => {
+  try {
+    await signInWithRedirect(auth, new GithubAuthProvider());
+  } catch (e: any) {
+    toast.error(e?.message);
+  }
+};
+
+const logOut = async () => signOut(auth);
+
+export {
+  auth,
+  signInWithCredential,
+  signInWithGoogle,
+  signInWithGitHub,
+  logOut,
+};

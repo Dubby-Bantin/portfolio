@@ -7,6 +7,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { RiCloseFill, RiMenu3Line } from "react-icons/ri";
 import SearchBar from "./search/Search";
+import { onAuthStateChanged } from "firebase/auth";
+import { toast } from "react-toastify";
+import { auth } from "@/app/lib/firebase";
 const NavBar = () => {
   const [isOpen, setIsopen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
@@ -17,6 +20,10 @@ const NavBar = () => {
   };
 
   useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      user && toast.success(`welcome, ${user.displayName}`);
+      console.log(user);
+    });
     activateBlur();
   }, []);
 
