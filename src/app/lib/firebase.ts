@@ -27,7 +27,7 @@ auth.useDeviceLanguage();
 
 const signInWithGoogle = async () => {
   try {
-    await signInWithPopup(auth, new GoogleAuthProvider());
+    await signInWithRedirect(auth, new GoogleAuthProvider());
   } catch (e: any) {
     toast.error(e?.message);
   }
