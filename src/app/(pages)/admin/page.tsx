@@ -3,7 +3,10 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const Admin = () => {
-  const passKey = localStorage.getItem("accessKey");
+  const passKey =
+    typeof window !== "undefined"
+      ? window.localStorage.getItem("accessKey")
+      : null;
   const router = useRouter();
   useEffect(() => {
     !passKey && router.push("/auth");

@@ -39,7 +39,10 @@ const AuthForm: FC = () => {
     }
   };
 
-  const otpValue = localStorage.getItem("accessKey");
+  const otpValue =
+    typeof window !== "undefined"
+      ? window.localStorage.getItem("accessKey")
+      : null;
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#050112]">
