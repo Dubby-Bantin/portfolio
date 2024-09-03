@@ -25,7 +25,7 @@ const AuthForm: FC = () => {
     e.preventDefault();
     const encryptedKey = encryptKey(otp);
     localStorage.setItem("accessKey", encryptedKey);
-    if (otp === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
+    if (otp === process.env.NEXT_PUBLIC_ADMIN_PASS) {
       setIsLoading(true);
       setTimeout(() => {
         router.push("/admin");
