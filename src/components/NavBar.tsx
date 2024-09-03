@@ -1,73 +1,91 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState, useCallback } from "react";
+import { RiCloseFill, RiMenu3Line } from "react-icons/ri";
+import { toast } from "react-toastify";
+import { usePathname } from "next/navigation";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "@/app/lib/firebase";
 import { logo } from "@/app/assets";
 import { navLinks } from "@/app/lib/constants";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { RiCloseFill, RiMenu3Line } from "react-icons/ri";
 import SearchBar from "./search/Search";
-import { onAuthStateChanged } from "firebase/auth";
-import { toast } from "react-toastify";
-import { auth } from "@/app/lib/firebase";
+
 const NavBar = () => {
-  const [isOpen, setIsopen] = useState(false);
-  const [isScroll, setIsScroll] = useState(false);
-  const activateBlur = () => {
-    window.addEventListener("scroll", () =>
-      window.scrollY > 10 ? setIsScroll(true) : setIsScroll(false)
-    );
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const path = usePathname();
+
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 10);
+  }, []);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      user && toast.success(`welcome, ${user.displayName}`);
-      console.log(user);
-    });
-    activateBlur();
-  }, []);
+    const handleAuthStateChange = async (user: User | null) => {
+      if (user) {
+        toast.success(`Welcome, ${user.displayName}`);
+        console.log(user);
+      }
+    };
+
+    onAuthStateChanged(auth, handleAuthStateChange);
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   return (
     <header
-      className={`top-0 z-[9999] sticky px-5  flex justify-between items-center ${
-        !isScroll ? "bg-black-100" : "backdrop-blur-lg"
-      }  p-2 `}
+      className={`top-0 z-[9999] sticky px-5 flex justify-between items-center p-2 ${
+        isScrolled ? "backdrop-blur-lg" : "bg-black-100"
+      }`}
     >
-      <Image src={logo} alt="logo" height={50} className="rounded-full" />
+      <Link href="/">
+        <Image src={logo} alt="logo" height={50} className="rounded-full" />
+      </Link>
       <SearchBar />
 
-      <ul className="sm:flex items-center gap-10 hidden text-white">
-        {navLinks.map(({ id, title }, i) => (
-          <Link key={id} href={""}>
-            {title}
-          </Link>
-        ))}
-      </ul>
+      {/* Desktop Navigation */}
+      <nav className="hidden sm:flex items-center gap-10 text-white">
+        {navLinks.map(({ id, title }, i) => {
+          const shouldRenderLink =
+            (path === "/" && i < 4) || (path === "/blog" && i === 4);
+          return (
+            shouldRenderLink && (
+              <Link key={id} href={`#${id}`}>
+                {title}
+              </Link>
+            )
+          );
+        })}
+      </nav>
 
-      {/* mobile nav-menu-start */}
-
+      {/* Mobile Navigation */}
       <button
-        onClick={() => setIsopen(!isOpen)}
+        onClick={toggleMenu}
         className="sm:hidden block transition-all duration-1000 text-white text-2xl"
       >
         {isOpen ? <RiCloseFill /> : <RiMenu3Line />}
       </button>
-      <div
-        className={`sm:hidden mobile__nav justify-center bg-gradient-to-br from-[#0C0E23] to-[#050112] items-center rounded-md flex flex-col h-[20rem] w-[13rem] top-20 right-0 shadow-lg absolute gap-5 z-[9999] ${
-          isOpen ? "flex" : "hidden"
-        }`}
-      >
-        <ul className="flex flex-col relative gap-10 text-white items-center">
-          <div className="blue__gradient bottom-40 w-full h-full z-0 absolute" />
-          {navLinks.map(({ id, title }) => (
-            <Link onClick={() => setIsopen(false)} key={id} href={"href"}>
-              {title}
-            </Link>
-          ))}
-        </ul>
-      </div>
-
-      {/* mobile nav-menu-end */}
+      {isOpen && (
+        <div className="sm:hidden mobile__nav bg-gradient-to-br from-[#0C0E23] to-[#050112] rounded-md flex flex-col h-[20rem] w-[13rem] top-20 right-0 shadow-lg absolute z-[9999] gap-5">
+          <ul className="flex flex-col gap-10 text-white items-center relative">
+            <div className="blue__gradient w-full h-full z-0 absolute" />
+            {navLinks.map(({ id, title }) => (
+              <Link key={id} href={`#${id}`} onClick={toggleMenu}>
+                {title}
+              </Link>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

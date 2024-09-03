@@ -4,7 +4,8 @@ import { ThemeProvider } from "next-themes";
 import HeadComponent from "../components/HeadComponent";
 import { usePathname } from "next/navigation";
 import NavbarWrapper from "@/components/NavBarWrapper";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -19,6 +20,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavbarWrapper />
+          <ToastContainer theme="dark" />
           {children}
         </ThemeProvider>
       </body>

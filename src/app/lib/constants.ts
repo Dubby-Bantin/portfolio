@@ -52,26 +52,11 @@ export const navLinks = [
     id: "blog",
     title: "Blog",
   },
+  {
+    id: "latest-posts",
+    title: "Latest-posts",
+  },
 ];
-
-// const services = [
-//   {
-//     title: "Web Developer",
-//     icon: web,
-//   },
-//   {
-//     title: "React Native Developer",
-//     icon: mobile,
-//   },
-//   {
-//     title: "Backend Developer",
-//     icon: backend,
-//   },
-//   {
-//     title: "Content Creator",
-//     icon: creator,
-//   },
-// ];
 
 const technologies = [
   {
