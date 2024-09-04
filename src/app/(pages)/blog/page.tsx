@@ -1,7 +1,6 @@
 import BlogBanner from "@/components/BlogBanner";
 import BlogSwiper from "@/components/BlogSwiper";
 import LatestBlogs from "@/components/LatestBlogs";
-import SelectScrollable from "@/components/Select";
 import { log } from "console";
 
 log("bantin");
@@ -10,7 +9,6 @@ const Blog = () => (
     <BlogBanner />
     <BlogSwiper />
     <LatestBlogs />
-    <SelectScrollable />
   </div>
 );
 

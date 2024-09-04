@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 const NavbarWrapper = () => {
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname === "/blog") {
+  if (pathname === "/" || pathname === "/blog" || pathname === "/blog/:id") {
     return <NavBar />;
   }
   return null;
