@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ImSpinner2 } from "react-icons/im";
+import { MdOutlineGppGood } from "react-icons/md";
 import {
   InputOTP,
   InputOTPGroup,
@@ -14,6 +15,7 @@ import {
 const AdminOtpVerification = () => {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -22,7 +24,6 @@ const AdminOtpVerification = () => {
   ) => {
     e.preventDefault();
     setIsLoading(true);
-
     try {
       const response = await fetch("/api/validate-otp", {
         method: "POST",
@@ -33,20 +34,24 @@ const AdminOtpVerification = () => {
       });
 
       const data = await response.json();
-      console.log(response);
 
-      if (data.success) {
-        setTimeout(() => {
-          router.push("/admin");
-        }, 2000); // Delay of 2 seconds
-      } else {
-        setError(data.message);
-      }
+      setTimeout(() => {
+        if (data.success) {
+          setSuccess(true);
+          // Redirect after the success message is shown
+          setTimeout(() => {
+            router.push("/admin");
+          }, 3000); // Redirect after an additional 3 seconds
+        } else {
+          setError(data.message);
+        }
+        setIsLoading(false); // Hide the loader after 3 seconds
+      }, 3000); // 3-second delay for loader visibility
     } catch (err) {
-      setError("An error occurred. Please try again.");
-    } finally {
-      // Ensure the loader is hidden after the delay
-      setIsLoading(false);
+      setTimeout(() => {
+        setError("An error occurred. Please try again.");
+        setIsLoading(false); // Hide the loader after 3 seconds
+      }, 3000); // 3-second delay for loader visibility
     }
   };
 
@@ -75,10 +80,19 @@ const AdminOtpVerification = () => {
         onClick={validateOtp}
         className="mt-4 text-white bg-blue-500 px-4 py-2 rounded-md"
       >
-        {isLoading ? <ImSpinner2 className="animate-spin w-6" /> : "Verify OTP"}
+        {isLoading ? (
+          <ImSpinner2 className="animate-spin w-20" />
+        ) : (
+          "Verify OTP"
+        )}
       </button>
 
-      {error && (
+      {success ? (
+        <div className="flex flex-col items-center mt-4">
+          <MdOutlineGppGood className="text-green-500 text-6xl p-2 rounded-full border-4 border-green-500 shadow-md animate-bounce" />
+          <p className="text-green-500 mt-2">Verification Successful!</p>
+        </div>
+      ) : (
         <p className="text-red-500 font-text mt-4 text-[.9rem]">{error}</p>
       )}
     </motion.div>
