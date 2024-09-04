@@ -27,6 +27,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/types/**/*.d.ts" // Add this line if you place `global.d.ts` in `src/types`
-  ],
+, "src/components/ProjectCard.tsx"  ],
   "exclude": ["node_modules"]
 }

@@ -1,15 +1,12 @@
 import React from "react";
 
-/**
- *  Updated Button Styling: Bluish Dark Theme
- */
 const MagicButton = ({
   title,
   icon,
   handleClick,
 }: {
   title?: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   handleClick?: () => void;
 }) => {
   return (

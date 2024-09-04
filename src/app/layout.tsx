@@ -1,5 +1,4 @@
 import "./globals.css";
-import NavBar from "../components/NavBar";
 import { ThemeProvider } from "next-themes";
 import HeadComponent from "../components/HeadComponent";
 import { usePathname } from "next/navigation";
@@ -20,7 +19,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavbarWrapper />
-          <ToastContainer theme="dark" />
           {children}
         </ThemeProvider>
       </body>

@@ -8,4 +8,8 @@ function cn(...inputs: ClassValue[]) {
 const encryptKey = (passKey: string) => btoa(passKey);
 const decryptKey = (passKey: string) => atob(passKey);
 
-export { cn, encryptKey, decryptKey };
+const passKey =
+  typeof window !== "undefined"
+    ? window.localStorage.getItem("accessKey")
+    : null;
+export { cn, encryptKey, decryptKey, passKey };

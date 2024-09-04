@@ -11,42 +11,12 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { encryptKey } from "@/utils/utils";
+import { encryptKey } from "@/app/lib/utils";
 import { signInWithGitHub, signInWithGoogle } from "@/app/lib/firebase";
 
 const AuthForm: FC = () => {
-  const [displayOtp, setDisplayOtp] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [error, setError] = useState("");
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const validateOtp = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault();
-    const encryptedKey = encryptKey(otp);
-    localStorage.setItem("accessKey", encryptedKey);
-    if (otp === process.env.NEXT_PUBLIC_ADMIN_PASS) {
-      setIsLoading(true);
-      setTimeout(() => {
-        router.push("/admin");
-        setDisplayOtp(false);
-      }, 5000);
-    } else {
-      setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        setError("Inavlid passkey. pls try again.");
-      }, 3000);
-    }
-  };
-
-  const otpValue =
-    typeof window !== "undefined"
-      ? window.localStorage.getItem("accessKey")
-      : null;
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#050112]">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-md p-8 py-10 space-y-6 bg-[#0a0a23] text-white rounded-lg shadow-lg relative">
         <h2 className="text-2xl font-bold text-center text-gradient">
           Create an account
@@ -116,57 +86,7 @@ const AuthForm: FC = () => {
             Create account
           </button>
         </form>
-        <button
-          onClick={() =>
-            otpValue ? router.push("/admin") : setDisplayOtp(true)
-          }
-          className="text-text text-[.8rem] text-blue-400 absolute bottom-2 right-2"
-        >
-          admin
-        </button>
       </div>
-
-      {displayOtp && (
-        <motion.div
-          transition={{ duration: 1 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex flex-col items-center justify-center fixed bg-black-100/85 min-h-screen w-full z-10"
-        >
-          <h1 className="text-gradient">Enter OTP to verify</h1>
-          <InputOTP
-            maxLength={6}
-            value={otp}
-            onChange={(value) => setOtp(value)}
-          >
-            <InputOTPGroup>
-              <InputOTPSlot index={0} />
-              <InputOTPSlot index={1} />
-              <InputOTPSlot index={2} />
-            </InputOTPGroup>
-            <InputOTPSeparator />
-            <InputOTPGroup>
-              <InputOTPSlot index={3} />
-              <InputOTPSlot index={4} />
-              <InputOTPSlot index={5} />
-            </InputOTPGroup>
-          </InputOTP>
-          <button
-            onClick={validateOtp}
-            className="mt-4 text-white bg-blue-500 px-4 py-2 rounded-md"
-          >
-            {isLoading ? (
-              <ImSpinner2 className="animate-spin w-20" />
-            ) : (
-              "Verify OTP"
-            )}
-          </button>
-
-          {error && (
-            <p className="text-red-500 font-text mt-4 text-[.9rem]">{error}*</p>
-          )}
-        </motion.div>
-      )}
     </div>
   );
 };

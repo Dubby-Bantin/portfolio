@@ -4,10 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import { RiCloseFill, RiMenu3Line } from "react-icons/ri";
-import { toast } from "react-toastify";
 import { usePathname } from "next/navigation";
-import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "@/app/lib/firebase";
 import { logo } from "@/app/assets";
 import { navLinks } from "@/app/lib/constants";
 import SearchBar from "./search/Search";
@@ -24,15 +21,6 @@ const NavBar = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
-    const handleAuthStateChange = async (user: User | null) => {
-      if (user) {
-        toast.success(`Welcome, ${user.displayName}`);
-        console.log(user);
-      }
-    };
-
-    onAuthStateChanged(auth, handleAuthStateChange);
-
     window.addEventListener("scroll", handleScroll);
 
     // Cleanup on unmount

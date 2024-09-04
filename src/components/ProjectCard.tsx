@@ -4,7 +4,7 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaCode } from "react-icons/fa6";
 
 interface ProjectCardProps {
-  id :number;
+  id: number;
   title: string;
   desc: string;
   img: StaticImageData;

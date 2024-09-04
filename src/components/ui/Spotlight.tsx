@@ -1,4 +1,4 @@
-import { cn } from "@/utils/utils";
+import { cn } from "@/app/lib/utils";
 import React from "react";
 
 type SpotlightProps = {
