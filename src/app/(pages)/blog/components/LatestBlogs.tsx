@@ -43,7 +43,7 @@ const LatestBlogs = () => {
 
       <div className="w-full flex flex-col-reverse md:flex-row md:items-start gap-5">
         <div className="flex flex-col gap-10 max-w-full md:max-w-[50rem] mx-auto">
-          {blogs.map((blog) => (
+          {blogs.slice(0, 3).map((blog) => (
             <Link
               href={`/blog/${blog.id}`}
               key={blog.id}
