@@ -13,15 +13,13 @@ const BlogArchive = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    // Fetch blogs in real-time and clean up listener on unmount
     const unsubscribe = fetchBlogDataRealTime((data) => {
       setBlogs(Array.isArray(data) ? data : []);
     });
 
-    // Cleanup the real-time listener when the component unmounts
     return () => {
       if (unsubscribe) {
-        unsubscribe(); // Unsubscribe from real-time updates
+        unsubscribe();
       }
     };
   }, []);
@@ -34,9 +32,9 @@ const BlogArchive = () => {
           <Link
             key={blog.id}
             href={`/blog/${blog.id}`}
-            className="w-full md:w-[25rem]"
+            className="w-full md:w-[25rem] group"
           >
-            <div className="bg-gradient-to-r from-[#0C0E23] to-[#1A1B41] rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-gradient-to-r from-[#0C0E23] to-[#1A1B41] rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105">
               <div className="rounded-t-lg h-52  overflow-clip w-full ">
                 <Image
                   src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"}
@@ -66,9 +64,7 @@ const BlogArchive = () => {
                   <p className="text-sm font-text">Desmond</p>
                 </div>
                 <div className="text-gray-400 flex items-center justify-between">
-                  <small>
-                    {formatTimestampToReadableDate(blog.date as any)}
-                  </small>
+                  <small>{formatTimestampToReadableDate(blog.date)}</small>
                   <small className="text-blue-500">read full article</small>
                 </div>
               </div>

@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import MagicButton from "@/components/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
@@ -17,7 +16,6 @@ const BlogBanner = () => {
         }
       }
     };
-
     playVideo();
   }, []);
 
@@ -29,8 +27,8 @@ const BlogBanner = () => {
         height="100%"
         autoPlay
         loop
-        muted // Muting the video to comply with autoplay policies
-        playsInline //To ensure video plays inline on mobile devices
+        muted
+        playsInline
         src="/videos/video.mp4"
         className="w-full h-auto md:h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
       />
