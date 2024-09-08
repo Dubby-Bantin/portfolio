@@ -256,6 +256,7 @@ const socialMedia = [
   {
     id: 1,
     Icon: FaGithub,
+    path:"https://github.com/Dubby-Bantin?tab=repositories"
   },
   {
     id: 2,
