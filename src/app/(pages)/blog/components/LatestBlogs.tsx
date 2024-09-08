@@ -12,7 +12,6 @@ import {
   formatTimestampToReadableDate,
 } from "@/app/lib/firebase/FetchBlogPosts";
 import Link from "next/link";
-import Skeleton from "react-loading-skeleton";
 
 const LatestBlogs = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -48,29 +47,21 @@ const LatestBlogs = () => {
             <Link
               href={`/blog/${blog.id}`}
               key={blog.id}
-              className=" rounded-lg p-4 md:p-6 text-white shadow-lg flex flex-col gap-10"
+              className="bg-gradient-to-r from-[#0C0E23] rounded-lg p-4 md:p-6 text-white shadow-lg flex flex-col gap-10"
             >
               <div className="rounded-lg h-52 md:h-80 bg-blue-700 overflow-clip w-full mb-6 md:mb-10">
-                {blog.paragraphs[0]?.imageUrl ? (
-                  <img
-                    src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"} // Use a default image if none is available
-                    alt="Blog Image"
-                    className="object-cover h-[20rem] w-full "
-                    width={200}
-                    // priority // If the image is important and should load first
-                    height={300}
-                    // quality={100} // Adjust image quality (0 to 100)
-                    // layout="responsive"
-                  />
-                ) : (
-                  <Skeleton
-                    height={208}
-                    width="100%"
-                    borderRadius="0.5rem"
-                    baseColor="#1A1B41"
-                    highlightColor="#2B2E66"
-                  />
-                )}
+                <img
+                  src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"} // Use a default image if none is available
+                  alt="Blog Image"
+                  className={`object-cover h-[20rem] w-full bg-gradient-to-r from-cyan-500 to-blue-500 ${
+                    !blog.paragraphs[0]?.imageUrl && "animate-pulse"
+                  } `}
+                  width={200}
+                  // priority // If the image is important and should load first
+                  height={300}
+                  // quality={100} // Adjust image quality (0 to 100)
+                  // layout="responsive"
+                />
               </div>
               <div className="flex flex-col items-center justify-center">
                 <h1 className="text-gradient text-lg md:text-[1.5rem]">
