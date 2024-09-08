@@ -34,7 +34,7 @@ export default async function BlogDetailPage({
       <div
         style={{
           objectFit: "contain",
-          background: `linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, .4)), url(${
+          background: `linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url(${
             blog.paragraphs[0]?.imageUrl || "/default-image.jpg"
           })`,
           backgroundPosition: "center",

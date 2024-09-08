@@ -269,11 +269,11 @@ const socialMedia = [
 
 const StaticBlogPostsSlider = [
   {
-    title: "Best NPM Packages",
+    title: "The Role of Frontend Development in Crafting User Experiences",
     image: photo1,
   },
   {
-    title: "React Testing",
+    title: "The Impact of Artificial Intelligence on Everyday Life",
     image: photo2,
   },
   {

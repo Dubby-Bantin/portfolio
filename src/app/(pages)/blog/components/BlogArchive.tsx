@@ -63,7 +63,7 @@ const BlogArchive = () => {
                   {blog.category}
                 </p>
                 <h3 className="text-lg font-semibold font-text text-transparent bg-clip-text bg-gradient-to-t from-indigo-900 via-blue-500 to-neutral-200 mb-3">
-                  {blog.title.slice(0, 30)}...
+                  {blog.title.slice(0, 35)}...
                 </h3>
                 <div className="flex items-center gap-3 mb-3">
                   <Image
@@ -73,11 +73,14 @@ const BlogArchive = () => {
                     width={30}
                     className="rounded-full"
                   />
-                  <p className="text-sm font-text">Dubby Bantin</p>
+                  <p className="text-sm font-text">Desmond</p>
                 </div>
-                <small className="text-gray-400">
-                  {formatTimestampToReadableDate(blog.date as any)}
-                </small>
+                <div className="text-gray-400 flex items-center justify-between">
+                  <small>
+                    {formatTimestampToReadableDate(blog.date as any)}
+                  </small>
+                  <small className="text-blue-500">read full article</small>
+                </div>
               </div>
             </div>
           </Link>

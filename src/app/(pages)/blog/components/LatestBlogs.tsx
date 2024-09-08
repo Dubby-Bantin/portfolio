@@ -43,7 +43,7 @@ const LatestBlogs = () => {
 
       <div className="w-full flex flex-col-reverse md:flex-row md:items-start gap-5">
         <div className="flex flex-col gap-10 max-w-full md:max-w-[50rem] mx-auto">
-          {blogs.slice(0, 3).map((blog) => (
+          {blogs.slice(2, 5).map((blog) => (
             <Link
               href={`/blog/${blog.id}`}
               key={blog.id}
@@ -74,7 +74,7 @@ const LatestBlogs = () => {
                       width={30}
                       className="rounded-full"
                     />
-                    Dubby Bantin
+                    Desmond
                   </div>
                   <div className="flex items-center gap-3">
                     <CiCalendar />
