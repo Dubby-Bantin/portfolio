@@ -40,28 +40,43 @@ export async function fetchAllBlogs(): Promise<BlogPost[]> {
   const collectionRef = collection(firestore, "blogPosts");
   const querySnapshot = await getDocs(collectionRef);
 
-  const blogs: BlogPost[] = querySnapshot.docs.map(
-    (doc) =>
-      ({
-        id: doc.id,
-        ...doc.data(),
-      } as BlogPost)
-  );
+  const blogs: BlogPost[] = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  } as BlogPost));
 
   return blogs;
 }
 
 // Function to fetch blog data in real-time (client-side use)
-export function fetchBlogDataRealTime(callback: (data: BlogPost | null | BlogPost[]) => void): () => void {
-  // Real-time fetch of all blog posts
-  const collectionRef = collection(firestore, "blogPosts");
-  const unsubscribe = onSnapshot(collectionRef, (querySnapshot) => {
-    const blogs: BlogPost[] = querySnapshot.docs.map(
-      (doc) => ({ id: doc.id, ...doc.data() } as BlogPost)
-    );
-    callback(blogs);
-  });
+export function fetchBlogDataRealTime(
+  callback: (data: BlogPost | null | BlogPost[]) => void,
+  id?: string
+): () => void {
+  if (id) {
+    // Real-time fetch of a single blog post by ID
+    const docRef = doc(firestore, "blogPosts", id);
+    const unsubscribe = onSnapshot(docRef, (docSnap) => {
+      if (docSnap.exists()) {
+        callback({ id: docSnap.id, ...docSnap.data() } as BlogPost);
+      } else {
+        callback(null); // Blog post not found
+      }
+    });
 
-  // Return unsubscribe function to stop listening when no longer needed
-  return unsubscribe;
+    // Return unsubscribe function to stop listening when no longer needed
+    return unsubscribe;
+  } else {
+    // Real-time fetch of all blog posts
+    const collectionRef = collection(firestore, "blogPosts");
+    const unsubscribe = onSnapshot(collectionRef, (querySnapshot) => {
+      const blogs: BlogPost[] = querySnapshot.docs.map(
+        (doc) => ({ id: doc.id, ...doc.data() } as BlogPost)
+      );
+      callback(blogs);
+    });
+
+    // Return unsubscribe function to stop listening when no longer needed
+    return unsubscribe;
+  }
 }
