@@ -1,9 +1,7 @@
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import HeadComponent from "../components/HeadComponent";
-import { usePathname } from "next/navigation";
 import NavbarWrapper from "@/components/NavBarWrapper";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function RootLayout({
   children,

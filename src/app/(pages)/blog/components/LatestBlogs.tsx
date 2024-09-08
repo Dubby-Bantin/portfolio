@@ -60,6 +60,8 @@ const LatestBlogs = () => {
                   // priority // If the image is important and should load first
                   height={300}
                   quality={100} // Adjust image quality (0 to 100)
+                  // fill
+                  objectFit="cover"
                   layout="responsive"
                 />
               </div>
