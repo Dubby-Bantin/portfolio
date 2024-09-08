@@ -8,6 +8,8 @@ import {
   formatTimestampToReadableDate,
 } from "@/app/lib/firebase/FetchBlogPosts";
 import { BlogPost } from "@/types/types";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const BlogArchive = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -48,15 +50,19 @@ const BlogArchive = () => {
           >
             <div className="bg-gradient-to-r from-[#0C0E23] to-[#1A1B41] rounded-lg overflow-hidden shadow-lg">
               <div className="rounded-lg h-52  overflow-clip w-full ">
-                <Image
-                  src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"}
-                  alt="Blog Image"
-                  className="w-full object-cover"
-                  width={300}
-                  height={100}
-                  quality={100}
-                  layout="responsive"
-                />
+                {blog.paragraphs[0]?.imageUrl ? (
+                  <Image
+                    src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"}
+                    alt="Blog Image"
+                    className="w-full object-cover"
+                    width={300}
+                    height={100}
+                    quality={100}
+                    layout="responsive"
+                  />
+                ) : (
+                  <Skeleton height={208} width="100%" borderRadius="0.5rem" />
+                )}
               </div>
               <div className="p-4">
                 <p className="text-xs text-white bg-gray-700 py-1 px-2 rounded w-fit mb-2 font-text">
