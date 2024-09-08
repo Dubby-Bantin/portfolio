@@ -4,14 +4,13 @@ import {
   getAuth,
   GithubAuthProvider,
   GoogleAuthProvider,
-  signInWithPopup,
   signInWithRedirect,
   signOut,
 } from "firebase/auth";
 import { signInWithCredential } from "firebase/auth";
 import { toast } from "react-toastify";
-// Usage
-
+import { getStorage } from "firebase/storage";
+import { getFirestore, onSnapshot  } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyACXLXasfLknupT9MU9iXGAWMtlWs5r-iw",
   authDomain: "portfolio-ce445.firebaseapp.com",
@@ -23,6 +22,7 @@ const firebaseConfig = {
 
 const app = getApps.length === 0 ? initializeApp(firebaseConfig) : getApp();
 const auth: Auth = getAuth(app);
+const firestore = getFirestore(app);
 auth.useDeviceLanguage();
 
 const signInWithGoogle = async () => {
@@ -43,10 +43,14 @@ const signInWithGitHub = async () => {
 
 const logOut = async () => signOut(auth);
 
+const storage = getStorage();
+
 export {
   auth,
+  storage,
   signInWithCredential,
   signInWithGoogle,
   signInWithGitHub,
   logOut,
+  firestore,
 };

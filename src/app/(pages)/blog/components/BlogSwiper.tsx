@@ -21,14 +21,14 @@ const BlogSwiper = () => {
         centeredSlides={true}
         spaceBetween={30}
         loop
-        pagination={{ type: "bullets", dynamicBullets: true }}
+        pagination={{ type: "bullets", dynamicBullets: true, clickable: true }}
         breakpoints={{
           300: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
       >
-        {StaticBlogPostsSlider.map(({ image, date, title }, i) => (
+        {StaticBlogPostsSlider.map(({ image, title }, i) => (
           <SwiperSlide key={i} className="py-10">
             <div className="relative rounded-lg">
               <Image
@@ -37,7 +37,6 @@ const BlogSwiper = () => {
                 className="w-full h-64 object-cover rounded-lg"
               />
               <div className="absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-white text-center p-4">
-                <p className="text-sm">{date}</p>
                 <h3 className="text-lg font-bold max-w-xs">{title}</h3>
               </div>
               <div className="absolute bottom-5 left-5 flex items-center gap-3">

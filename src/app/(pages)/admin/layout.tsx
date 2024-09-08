@@ -1,7 +1,9 @@
+import AdminSidebar from "./components/AdminSideBar";
+
 const AdminDashBoard = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex items-start ">
-      <div className="w-[20%] border-r">AdminDashBoardSidebar</div>
+    <div className="flex items-start border-t">
+      <AdminSidebar />
       {children}
     </div>
   );

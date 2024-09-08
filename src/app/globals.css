@@ -46,7 +46,7 @@
 }
 
 .text-gradient {
-  @apply md:tracking-wider mb-4 font-heading  lg:text-3xl text-[#1c1e21] text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-t from-indigo-900 via-blue-500 to-neutral-200 bg-opacity-60;
+  @apply md:tracking-wider mb-4 font-heading text-3xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-t from-indigo-900 via-blue-500 to-neutral-200 bg-opacity-60;
 }
 
 @layer base {

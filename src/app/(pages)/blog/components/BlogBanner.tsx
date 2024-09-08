@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import MagicButton from "./MagicButton";
+import MagicButton from "@/components/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
 
 const BlogBanner = () => {

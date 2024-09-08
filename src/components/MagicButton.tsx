@@ -11,7 +11,7 @@ const MagicButton = ({
 }) => {
   return (
     <button
-      className="relative font-text inline-flex h-12 w-full md:w-60 md:mt-10 rounded-md overflow-hidden p-[1px] focus:outline-none"
+      className="relative font-text inline-flex h-12 w-full md:w-60  rounded-md overflow-hidden p-[1px] focus:outline-none"
       onClick={handleClick}
     >
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#1e3a8a_0%,#3b82f6_50%,#1e3a8a_100%)]" />

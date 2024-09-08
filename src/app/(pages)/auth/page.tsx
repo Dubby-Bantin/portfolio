@@ -1,18 +1,8 @@
 "use client";
-import { FC, useState } from "react";
-import { useRouter } from "next/navigation"; // Adjusted for Next.js 13 routing
+import { FC } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { ImSpinner2 } from "react-icons/im";
 import { FcGoogle } from "react-icons/fc";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@/components/ui/input-otp";
-import { encryptKey } from "@/app/lib/utils";
-import { signInWithGitHub, signInWithGoogle } from "@/app/lib/firebase";
+import { signInWithGitHub, signInWithGoogle } from "@/app/lib/firebase/auth";
 
 const AuthForm: FC = () => {
   return (

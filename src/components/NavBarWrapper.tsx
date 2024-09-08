@@ -6,7 +6,13 @@ import NavBar from "./NavBar";
 const NavbarWrapper = () => {
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname === "/blog" || pathname === "/blog/:id") {
+  // Adjust this list of paths as needed
+  if (
+    pathname === "/" ||
+    pathname === "/blog" ||
+    pathname === "/admin" ||
+    pathname.startsWith("/admin/")
+  ) {
     return <NavBar />;
   }
   return null;

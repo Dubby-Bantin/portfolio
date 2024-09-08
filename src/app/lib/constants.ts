@@ -34,6 +34,9 @@ import {
   FaWhatsapp,
   FaLinkedin,
 } from "react-icons/fa";
+import { SlLayers } from "react-icons/sl";
+import { LuLayoutList } from "react-icons/lu";
+import { TbUsersGroup } from "react-icons/tb";
 
 export const navLinks = [
   {
@@ -267,31 +270,30 @@ const socialMedia = [
 const StaticBlogPostsSlider = [
   {
     title: "Best NPM Packages",
-    date: "Oct 08, 2021",
     image: photo1,
   },
   {
     title: "React Testing",
-    date: "Oct 08, 2021",
     image: photo2,
   },
   {
     title: "Best React Animation Libraries",
-    date: "Oct 11, 2021",
     image: photo3,
   },
   {
     title: "Best GitHub Repositories Every Developer Should Know",
-    date: "Oct 11, 2021",
     image: photo4,
   },
   {
     title: "Make Money as a Developer",
-    date: "Oct 11, 2021",
     image: photo5,
   },
 ];
-
+const AdminNavigationLinks = [
+  { text: "Categories", path: "/admin/categories", Icon: SlLayers },
+  { text: "Posts", path: "/admin/posts", Icon: LuLayoutList },
+  { text: "Users", path: "/admin/users", Icon: TbUsersGroup },
+];
 export {
   technologies,
   projects,
@@ -303,4 +305,5 @@ export {
   photo4,
   photo5,
   StaticBlogPostsSlider,
+  AdminNavigationLinks,
 };
