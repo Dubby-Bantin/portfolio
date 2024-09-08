@@ -30,7 +30,7 @@ export default async function BlogDetailPage({
         <button className="inline-flex items-center justify-center rounded-full border border-blue-500 h-[50px] w-[50px] mb-5 mt-5">
           <IoReturnDownBackOutline />
         </button>
-        <span className="text-blue-500 flex items-center justify-center">
+        <span className="text-blue-500 flex items-end justify-center">
           <p>please make sure to leave a comment</p>{" "}
           <MdKeyboardDoubleArrowDown />
         </span>
