@@ -94,7 +94,7 @@ export default async function BlogDetailPage({
                     height={500}
                     quality={100}
                     objectFit="cover"
-                    layout="responsive" 
+                    layout="responsive"
                   />
                 )}
               </div>
