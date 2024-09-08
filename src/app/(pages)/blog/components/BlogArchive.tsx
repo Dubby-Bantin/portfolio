@@ -61,7 +61,13 @@ const BlogArchive = () => {
                     layout="responsive"
                   />
                 ) : (
-                  <Skeleton height={208} width="100%" borderRadius="0.5rem" />
+                  <Skeleton
+                    height={208}
+                    width="100%"
+                    borderRadius="0.5rem"
+                    baseColor="#1A1B41"
+                    highlightColor="#2B2E66"
+                  />
                 )}
               </div>
               <div className="p-4">
