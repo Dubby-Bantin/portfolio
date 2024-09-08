@@ -37,7 +37,7 @@ const BlogArchive = () => {
             className="w-full md:w-[25rem]"
           >
             <div className="bg-gradient-to-r from-[#0C0E23] to-[#1A1B41] rounded-lg overflow-hidden shadow-lg">
-              <div className="rounded-lg h-52  overflow-clip w-full ">
+              <div className="rounded-t-lg h-52  overflow-clip w-full ">
                 <Image
                   src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"}
                   alt="Blog Image"
