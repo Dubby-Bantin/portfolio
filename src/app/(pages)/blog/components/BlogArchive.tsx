@@ -13,13 +13,11 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const BlogArchive = () => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     // Fetch blogs in real-time and clean up listener on unmount
     const unsubscribe = fetchBlogDataRealTime((data) => {
       setBlogs(Array.isArray(data) ? data : []);
-      setLoading(false);
     });
 
     // Cleanup the real-time listener when the component unmounts
@@ -29,14 +27,6 @@ const BlogArchive = () => {
       }
     };
   }, []);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin" />
-      </div>
-    );
-  }
 
   return (
     <div className="px-4 md:px-10 w-full flex flex-col gap-5 items-start py-10">

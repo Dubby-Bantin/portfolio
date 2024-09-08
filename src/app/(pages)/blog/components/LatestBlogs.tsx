@@ -48,14 +48,14 @@ const LatestBlogs = () => {
             <Link
               href={`/blog/${blog.id}`}
               key={blog.id}
-              className="bg-gradient-to-r from-[#0C0E23] rounded-lg p-4 md:p-6 text-white shadow-lg flex flex-col gap-10"
+              className=" rounded-lg p-4 md:p-6 text-white shadow-lg flex flex-col gap-10"
             >
               <div className="rounded-lg h-52 md:h-80 bg-blue-700 overflow-clip w-full mb-6 md:mb-10">
                 {blog.paragraphs[0]?.imageUrl ? (
                   <img
                     src={blog.paragraphs[0]?.imageUrl || "/default-image.jpg"} // Use a default image if none is available
                     alt="Blog Image"
-                    className="object-cover h-[20rem] w-full bg-gradient-to-r from-cyan-500 to-blue-500"
+                    className="object-cover h-[20rem] w-full "
                     width={200}
                     // priority // If the image is important and should load first
                     height={300}
