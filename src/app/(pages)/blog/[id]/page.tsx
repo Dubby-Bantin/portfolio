@@ -3,11 +3,14 @@ import Link from "next/link";
 import { IoReturnDownBackOutline } from "react-icons/io5";
 import profilePic from "@/app/assets/images/logo.jpeg";
 import HandleSelect from "@/components/HandleSelect";
+import Giscus from "@giscus/react";
 import {
   fetchBlogById,
   formatTimestampToReadableDate,
 } from "@/app/lib/firebase/FetchBlogPosts";
 import { BlogPost } from "@/types/types";
+import GiscusComments from "../components/GiscusComments";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 export default async function BlogDetailPage({
   params: { id },
@@ -24,10 +27,14 @@ export default async function BlogDetailPage({
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       {/* Back Button */}
-      <Link href="/blog">
+      <Link href="/blog" className="flex items-center justify-between w-full">
         <button className="inline-flex items-center justify-center rounded-full border border-blue-500 h-[50px] w-[50px] mb-5 mt-5">
           <IoReturnDownBackOutline />
         </button>
+        <span className="text-blue-500 flex items-center justify-center">
+          <p>please make sure to leave a comment</p>{" "}
+          <MdKeyboardDoubleArrowDown />
+        </span>
       </Link>
 
       {/* Blog Header Image */}
@@ -134,6 +141,7 @@ export default async function BlogDetailPage({
           </div>
         </div>
       </div>
+      <GiscusComments />
     </div>
   );
 }
