@@ -3,7 +3,6 @@ import Link from "next/link";
 import { IoReturnDownBackOutline } from "react-icons/io5";
 import profilePic from "@/app/assets/images/logo.jpeg";
 import HandleSelect from "@/components/HandleSelect";
-import Giscus from "@giscus/react";
 import {
   fetchBlogById,
   formatTimestampToReadableDate,
