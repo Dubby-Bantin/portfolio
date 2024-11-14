@@ -15,7 +15,13 @@ const Banner = () => {
       <StarsBackground />
       <div className="text-center gap-5 flex flex-col p-4 max-w-7xl  mx-auto relative z-10  w-full pt-52 md:pt-0">
         <p>Dynamic Web Magic with Next.js</p>
-        <Image src={profileImage} alt="alt" width={500} height={500} className="rounded-full z-[9999999999]" />
+        <Image
+          src={profileImage}
+          alt="alt"
+          width={200}
+          height={200}
+          className="rounded-full relative top-10 right-10"
+        />
         <TextGenerateEffect words="Transforming Concepts into Seamless User Experiences" />
         <p className=" md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl text-[#1c1e21 ]">
           Hi! I&apos;m Chidubem Desmond, a Next.js Developer.
