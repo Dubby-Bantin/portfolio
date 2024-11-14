@@ -11,6 +11,7 @@ import { signInWithCredential } from "firebase/auth";
 import { toast } from "react-toastify";
 import { getStorage } from "firebase/storage";
 import { getFirestore, onSnapshot  } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyACXLXasfLknupT9MU9iXGAWMtlWs5r-iw",
   authDomain: "portfolio-ce445.firebaseapp.com",

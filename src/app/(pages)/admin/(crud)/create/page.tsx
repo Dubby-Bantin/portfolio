@@ -65,7 +65,7 @@ const AddPostForm = () => {
 
   const handleDrop = (acceptedFiles: File[], index: number) => {
     const file = acceptedFiles[0];
-    if (!file) return;
+    if (!file) {return;}
 
     const updatedPreviews = [...imagePreviews];
     const reader = new FileReader();
